@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ClearAllTask, DeleteTask } from "../actions/TodoActions";
 import { MdDelete } from "react-icons/md";
-import { AiOutlineClear, AiFillEdit } from "react-icons/ai";
+import { AiOutlineClear, AiFillEdit, AiFillSave } from "react-icons/ai";
 import { useState } from "react";
 
 const ListTodo = () => {
@@ -35,8 +35,19 @@ const ListTodo = () => {
               className="justify-self-end cursor-pointer text-gray-800 min-w-max bg-gray-300 py-2 px-3 text-sm rounded-lg border border-gray-900 focus:ring-gray-500 font-semibold focus:border-gray-500 flex items-center gap-1"
               onClick={editTask}
             >
-              <AiFillEdit />
-              Edit
+              {/* <AiFillSave /> */}
+              {/* <AiFillEdit /> */}
+              {editEnable ? (
+                <>
+                  <AiFillSave />
+                  Save
+                </>
+              ) : (
+                <>
+                  <AiFillEdit />
+                  Edit
+                </>
+              )}
             </button>
           </div>
         )}
