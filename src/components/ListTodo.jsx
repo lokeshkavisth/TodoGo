@@ -16,8 +16,8 @@ const ListTodo = () => {
   const dispatch = useDispatch();
 
   return (
-    <section className="w-4/5 h-96 max-h-96 p-5 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 rounded-lg">
-      <div className="flex items-center justify-between gap-2">
+    <section className="w-4/5 h-96 max-h-96 p-5 pt-0 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 rounded-lg relative">
+      <div className="flex items-center justify-between gap-2 sticky top-0 left-0 right-0 backdrop-blur-sm pb-2 pt-5">
         <h3 className="px-3 text-md text-gray-500 uppercase dark:text-gray-400 mb-5">
           My Task&#39;s
         </h3>
@@ -35,8 +35,6 @@ const ListTodo = () => {
               className="justify-self-end cursor-pointer text-gray-800 min-w-max bg-gray-300 py-2 px-3 text-sm rounded-lg border border-gray-900 focus:ring-gray-500 font-semibold focus:border-gray-500 flex items-center gap-1"
               onClick={editTask}
             >
-              {/* <AiFillSave /> */}
-              {/* <AiFillEdit /> */}
               {editEnable ? (
                 <>
                   <AiFillSave />
