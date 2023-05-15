@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { AddNewTask } from "../actions/TodoActions";
 import { useDispatch } from "react-redux";
+import { MdCreate } from "react-icons/md";
 
 const AddTodo = () => {
   const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
-  // console.log();
 
   return (
     <div className="w-4/5">
@@ -17,17 +17,20 @@ const AddTodo = () => {
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
           autoFocus
+          required
+          minLength={1}
         />
         <button
           type="button"
-          title="Create Task"
+          disabled={todo.trim() == ""}
           onClick={() => {
             dispatch(AddNewTask(todo));
             setTodo("");
           }}
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 min-w-max flex items-center gap-1"
         >
-          Create Task
+          <MdCreate />
+          Create
         </button>
       </div>
     </div>
